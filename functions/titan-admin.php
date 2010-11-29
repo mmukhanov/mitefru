@@ -88,7 +88,7 @@
 <div class="v-option">
 	<h3><?php echo $this->options[$i]["name"]; ?></h3>
 	<div class="v-option-body clear">
-		<?php $notice = $this->options[$i]["notice"] ?>
+		<?php $notice = isset($this->ioptions[$i]["notice"]) ?>
 		<?php if ($notice != '' ){ ?>
 			<p class="notice"><?php echo $notice; ?></p>
 		<?php } ?>
@@ -97,7 +97,7 @@
 
 					case "checkbox":
 						?>
-		<?php $pro = $this->options[$i]["pro"] ?>
+		<?php $pro = isset($this->options[$i]["pro"] )?>
 		<div class="v-field check clear <?php if ($pro == 'true' )echo 'pro' ?>">
 			<div class="v-field-d"><span><?php echo $this->options[$i]["desc"]; ?></span></div>
 			<input id="<?php echo $this->options[$i]["id"]; ?>" type="checkbox" name="<?php echo $this->options[$i]["id"]; ?>" value="true"<?php echo (get_settings($this->options[$i]['id'])) ? ' checked="checked"' : ''; ?> />
