@@ -18,7 +18,7 @@
 
 			/* Add Custom CSS & JS */
 			function printAdminScripts () {
-				if ( $_GET['page'] == basename(__FILE__) ) {
+				if ( isset($_GET['page']) == basename(__FILE__) ) {
 					wp_enqueue_style( 'jestro', get_bloginfo( 'template_directory').'/functions/stylesheets/admin.css');
 					wp_enqueue_script( 'jestro', get_bloginfo( 'template_directory').'/functions/javascripts/admin.js', array( 'jquery' ));
 					wp_enqueue_script( 'farbtastic');
@@ -29,8 +29,8 @@
 			/* Process Input and Add Options Page*/
 			function addAdminPage() {
 				// global $themename, $shortname, $options;
-				if ( $_GET['page'] == basename(__FILE__) ) {
-					if ( 'save' == $_REQUEST['action'] ) {
+				if ( isset($_GET['page']) == basename(__FILE__) ) {
+					if ( 'save' == isset($_REQUEST['action'] )) {
 						foreach ($this->options as $value) {
 							update_option( $value['id'], $_REQUEST[ $value['id'] ] );
 						}
@@ -43,7 +43,7 @@
 						}
 						header("Location: themes.php?page=".basename(__FILE__)."&saved=true");
 						die;
-					} else if ( 'reset' == $_REQUEST['action'] ) {
+					} else if ( 'reset' == isset($_REQUEST['action'] )) {
 						foreach ($this->options as $value) {
 							delete_option( $value['id'] );
 						}
@@ -57,8 +57,8 @@
 			/* Output of the Admin Page */
 			function adminPage () {
 				// global $themename, $shortname, $options;
-				if ( $_REQUEST['saved'] ) echo '<div id="message" class="updated fade"><p><strong>' . $this->themename . __( ' settings saved!', 'titan' ). '</strong></p></div>';
-				if ( $_REQUEST['reset'] ) echo '<div id="message" class="updated fade"><p><strong>' . $this->themename . __( ' settings reset.', 'titan' ). '</strong></p></div>'; ?>
+				if ( isset($_REQUEST['saved']) ) echo '<div id="message" class="updated fade"><p><strong>' . $this->themename . __( ' settings saved!', 'titan' ). '</strong></p></div>';
+				if ( isset($_REQUEST['reset'] )) echo '<div id="message" class="updated fade"><p><strong>' . $this->themename . __( ' settings reset.', 'titan' ). '</strong></p></div>'; ?>
 
 <div id="v-options">
 	<div class="v-top clear">
