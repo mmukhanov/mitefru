@@ -100,7 +100,7 @@
 		<?php $pro = isset($this->options[$i]["pro"] )?>
 		<div class="v-field check clear <?php if ($pro == 'true' )echo 'pro' ?>">
 			<div class="v-field-d"><span><?php echo $this->options[$i]["desc"]; ?></span></div>
-			<input id="<?php echo $this->options[$i]["id"]; ?>" type="checkbox" name="<?php echo $this->options[$i]["id"]; ?>" value="true"<?php echo (get_settings($this->options[$i]['id'])) ? ' checked="checked"' : ''; ?> />
+			<input id="<?php echo $this->options[$i]["id"]; ?>" type="checkbox" name="<?php echo $this->options[$i]["id"]; ?>" value="true"<?php echo (get_option($this->options[$i]['id'])) ? ' checked="checked"' : ''; ?> />
 			<label for="<?php echo $this->options[$i]["id"]; ?>"><?php echo $this->options[$i]["name"]; ?></label>
 		</div><!--end v-field check-->
 						<?php
@@ -113,10 +113,10 @@
 			<div class="v-field-d"><span><?php echo $this->options[$i]["desc"]; ?></span></div>
 				<?php $pro = $this->options[$i]["pro"] ?>
 				<?php
-				$radio_setting = get_settings($this->options[$i]['id']);
+				$radio_setting = get_option($this->options[$i]['id']);
 				$checked = "";
 				foreach ($this->options[$i]['options'] as $key => $val) :
-					if ($radio_setting != '' &&	$key == get_settings($this->options[$i]['id']) ) {
+					if ($radio_setting != '' &&	$key == get_option($this->options[$i]['id']) ) {
 						$checked = ' checked="checked"';
 					} else {
 						if ($key == $this->options[$i]['std']){
@@ -133,11 +133,11 @@
 
 						case "text":
 							?>
-		<?php $pro = $this->options[$i]["pro"] ?>
+		<?php $pro = isset($this->options[$i]["pro"]) ?>
 		<div class="v-field text clear <?php if ($pro == 'true' )echo 'pro' ?>">
 			<div class="v-field-d"><span><?php echo $this->options[$i]["desc"]; ?></span></div>
 			<label for="<?php echo $this->options[$i]["id"]; ?>"><?php echo $this->options[$i]["name"]; ?></label>
-			<input id="<?php echo $this->options[$i]["id"]; ?>" type="text" name="<?php echo $this->options[$i]["id"]; ?>" value="<?php echo stripslashes((get_settings($this->options[$i]["id"]) != "") ? get_settings($this->options[$i]["id"]) : $this->options[$i]["std"]); ?>" />
+			<input id="<?php echo $this->options[$i]["id"]; ?>" type="text" name="<?php echo $this->options[$i]["id"]; ?>" value="<?php echo stripslashes((get_option($this->options[$i]["id"]) != "") ? get_option($this->options[$i]["id"]) : $this->options[$i]["std"]); ?>" />
 		</div><!--end v-field text-->
 						<?php
 							break;
@@ -149,7 +149,7 @@
 			<div class="v-field-d"><span><?php echo $this->options[$i]["desc"]; ?></span></div>
 			<label for="<?php echo $this->options[$i]["id"]; ?>"><?php echo $this->options[$i]["name"]; ?> <a href="javascript:return false;" onclick="toggleColorpicker (this, '<?php echo $this->options[$i]["id"]; ?>', 'open', '<?php _e( 'show color picker', 'titan'); ?>', '<?php _e( 'hide color picker', 'titan'); ?>')"><?php _e( 'show color picker', 'titan'); ?></a></label>
 			<div id="<?php echo $this->options[$i]["id"]; ?>_colorpicker" class="colorpicker_container"></div>
-			<input id="<?php echo $this->options[$i]["id"]; ?>" type="text" name="<?php echo $this->options[$i]["id"]; ?>" value="<?php echo (get_settings($this->options[$i]["id"]) != "") ? get_settings($this->options[$i]["id"]) : $this->options[$i]["std"]; ?>" />
+			<input id="<?php echo $this->options[$i]["id"]; ?>" type="text" name="<?php echo $this->options[$i]["id"]; ?>" value="<?php echo (get_option($this->options[$i]["id"]) != "") ? get_option($this->options[$i]["id"]) : $this->options[$i]["std"]; ?>" />
 		</div><!--end v-field colorpicker-->
 						<?php
 							break;
@@ -163,10 +163,10 @@
 			<select id="<?php echo $this->options[$i]["id"]; ?>" name="<?php echo $this->options[$i]["id"]; ?>">
 				<?php
 					foreach ($this->options[$i]["options"] as $key => $val) :
-						if (get_settings($this->options[$i]["id"]) == "" || is_null(get_settings($this->options[$i]["id"]))) : ?>
+						if (get_option($this->options[$i]["id"]) == "" || is_null(get_option($this->options[$i]["id"]))) : ?>
 					<option value="<?php echo $key; ?>"<?php echo ($key == $this->options[$i]['std']) ? ' selected="selected"' : ''; ?>><?php echo $val; ?></option>
 						<?php else : ?>
-					<option value="<?php echo $key; ?>"<?php echo get_settings($this->options[$i]["id"]) == $key ? ' selected="selected"' : ''; ?>><?php echo $val; ?></option>
+					<option value="<?php echo $key; ?>"<?php echo get_option($this->options[$i]["id"]) == $key ? ' selected="selected"' : ''; ?>><?php echo $val; ?></option>
 					<?php
 						endif;
 					endforeach;
@@ -178,12 +178,12 @@
 
 						case "textarea":
 							?>
-		<?php $pro = $this->options[$i]["pro"] ?>
+		<?php $pro = isset($this->options[$i]["pro"]) ?>
 		<div class="v-field textarea clear <?php if ($pro == 'true' )echo 'pro' ?>">
 			<div class="v-field-d"><span><?php echo $this->options[$i]["desc"]?></span></div>
 			<label for="<?php echo $this->options[$i]["id"]?>"><?php echo $this->options[$i]["name"]?></label>
 			<textarea id="<?php echo $this->options[$i]["id"]?>" name="<?php echo $this->options[$i]["id"]?>"<?php echo ($this->options[$i]["options"] ? ' rows="'.$this->options[$i]["options"]["rows"].'" cols="'.$this->options[$i]["options"]["cols"].'"' : ""); ?>><?php
-				echo ( get_settings($this->options[$i]['id']) != "") ? stripslashes(get_settings($this->options[$i]['id'])) : stripslashes($this->options[$i]['std']);
+				echo ( get_option($this->options[$i]['id']) != "") ? stripslashes(get_option($this->options[$i]['id'])) : stripslashes(isset($this->options[$i]['std']));
 			?></textarea>
 		</div><!--end vop-v-field textarea-->
 						<?php
