@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+﻿<?php get_header(); ?>
 	<?php if( ( is_front_page() || is_home()) && !is_paged() ) { ?>
 		<div class="welcome_message">
 		  <div class="post-header"><h2>Добро пожаловать на сайт Предпринимательского форума MIT!</h2></div>
@@ -26,7 +26,7 @@
 			<?php wp_link_pages(); ?>
 		</div><!--end entry-->
 		<div class="post-footer">
-			<div class="comments"><?php comments_popup_link(__ ( 'Оставить комментарий', 'titan'), __ ( '1 комментарий', 'titan'), __ngettext ( '% комментарий', '% комментария(ев)', get_comments_number (),'titan')); ?></div>
+			<div class="comments"><?php comments_popup_link(__ ( 'Оставить комментарий', 'titan'), __ ( '1 комментарий', 'titan'), _n( '% комментарий', '% комментария(ев)', get_comments_number (),'titan')); ?></div>
 		</div><!--end post footer-->
 	</div><!--end post-->
 	<?php endwhile; /* rewind or continue if all posts have been fetched */ ?>

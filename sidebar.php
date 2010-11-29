@@ -29,7 +29,7 @@
 			<li class="widget widget_categories">
 				<h2 class="widgettitle"><?php _e( 'Categories', 'titan'); ?></h2>
 				<ul>
-					<?php wp_list_cats( 'sort_column=name&hierarchical=0'); ?>
+					<?php wp_list_categories( 'sort_column=name&hierarchical=0'); ?>
 				</ul>
 			</li>
 			<li class="widget widget_archive">

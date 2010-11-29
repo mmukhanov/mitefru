@@ -119,7 +119,7 @@
 					if ($radio_setting != '' &&	$key == get_option($this->options[$i]['id']) ) {
 						$checked = ' checked="checked"';
 					} else {
-						if ($key == $this->options[$i]['std']){
+						if ($key == isset($this->options[$i]['std'])){
 							$checked = 'checked="checked"';
 						}
 					}
@@ -164,7 +164,7 @@
 				<?php
 					foreach ($this->options[$i]["options"] as $key => $val) :
 						if (get_option($this->options[$i]["id"]) == "" || is_null(get_option($this->options[$i]["id"]))) : ?>
-					<option value="<?php echo $key; ?>"<?php echo ($key == $this->options[$i]['std']) ? ' selected="selected"' : ''; ?>><?php echo $val; ?></option>
+					<option value="<?php echo $key; ?>"<?php echo ($key == isset($this->options[$i]['std'])) ? ' selected="selected"' : ''; ?>><?php echo $val; ?></option>
 						<?php else : ?>
 					<option value="<?php echo $key; ?>"<?php echo get_option($this->options[$i]["id"]) == $key ? ' selected="selected"' : ''; ?>><?php echo $val; ?></option>
 					<?php
@@ -182,8 +182,8 @@
 		<div class="v-field textarea clear <?php if ($pro == 'true' )echo 'pro' ?>">
 			<div class="v-field-d"><span><?php echo $this->options[$i]["desc"]?></span></div>
 			<label for="<?php echo $this->options[$i]["id"]?>"><?php echo $this->options[$i]["name"]?></label>
-			<textarea id="<?php echo $this->options[$i]["id"]?>" name="<?php echo $this->options[$i]["id"]?>"<?php echo ($this->options[$i]["options"] ? ' rows="'.$this->options[$i]["options"]["rows"].'" cols="'.$this->options[$i]["options"]["cols"].'"' : ""); ?>><?php
-				echo ( get_option($this->options[$i]['id']) != "") ? stripslashes(get_option($this->options[$i]['id'])) : stripslashes(isset($this->options[$i]['std']));
+			<textarea id="<?php echo isset($this->options[$i]["id"])?>" name="<?php echo isset($this->options[$i]["id"])?>"<?php echo (isset($this->options[$i]["options"]) ? ' rows="'.isset($this->options[$i]["options"]["rows"]).'" cols="'.isset($this->options[$i]["options"]["cols"]).'"' : ""); ?>><?php
+				echo ( get_option(isset($this->options[$i]['id'])) != "") ? stripslashes(get_option(isset($this->options[$i]['id']))) : stripslashes(isset($this->options[$i]['std']));
 			?></textarea>
 		</div><!--end vop-v-field textarea-->
 						<?php
