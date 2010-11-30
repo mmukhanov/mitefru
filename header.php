@@ -32,7 +32,7 @@
 
 	<!--Scripts-->
 	<!--[if lte IE 7]>
-	<script type="text/javascript">
+	<script type="text/javascript"> 
 	sfHover=function(){var sfEls=document.getElementById("nav").getElementsByTagName("LI");for(var i=0;i<sfEls.length;i++){sfEls[i].onmouseover=function(){this.className+=" sfhover";}
 	sfEls[i].onmouseout=function(){this.className=this.className.replace(new RegExp(" sfhover\\b"),"");}}}
 	if (window.attachEvent)window.attachEvent("onload",sfHover);
@@ -51,13 +51,10 @@
 	<div class="skip-content"><a href="#content">Skip to content</a></div>
 	<div id="header" class="clear">
 		<div class="wrapper">
-			<?php if (is_home()) echo( '<h1 id="title">'); else echo( '<div id="title">');?><a href="<?php bloginfo( 'url'); ?>"><?php bloginfo( 'name'); ?></a><?php if (is_home()) echo( '</h1>'); else echo( '</div>');?>
-			<div id="description">
-				<?php bloginfo( 'description'); ?>
-			</div><!--end description-->
+			<?php if (is_home()) echo( '<h1 id="title">'); else echo( '<div id="title">');?><a href="<?php bloginfo( 'url'); ?>"><img src="./wp-content/themes/mitefru/images/mitef-logo.gif" alt="MITEF.RU"></a><?php if (is_home()) echo( '</h1>'); else echo( '</div>');?>
 			<div id="navigation">
 				<ul id="nav">
-					<li class="page_item <?php if (is_front_page()) echo( 'current_page_item');?>"><a href="<?php bloginfo( 'url'); ?>"><?php _e( 'Главная', 'titan' ); ?></a></li>
+					<li class="page_item <?php if (is_front_page()) echo( 'current_page_item');?>"><a href="	<?php bloginfo( 'url'); ?>"><?php _e( 'Главная', 'titan' ); ?></a></li>
 					<?php if ($titan->hidePages() !== 'true' ): ?>
 						<?php wp_list_pages( 'title_li=' ); ?>
 					<?php endif; ?>
