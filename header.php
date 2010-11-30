@@ -51,7 +51,7 @@
 	<div class="skip-content"><a href="#content">Skip to content</a></div>
 	<div id="header" class="clear">
 		<div class="wrapper">
-			<?php if (is_home()) echo( '<h1 id="title">'); else echo( '<div id="title">');?><a href="<?php bloginfo( 'url'); ?>"><img src="./wp-content/themes/mitefru/images/mitef-logo.gif" alt="MITEF.RU"></a><?php if (is_home()) echo( '</h1>'); else echo( '</div>');?>
+			<?php if (is_home()) echo( '<h1 id="title">'); else echo( '<div id="title">');?><a href="<?php bloginfo( 'url'); ?>"><img src="<?php echo home_url(); ?>/wp-content/themes/mitefru/images/mitef-logo.gif" alt="MITEF.RU"></a><?php if (is_home()) echo( '</h1>'); else echo( '</div>');?>
 			<div id="navigation">
 				<ul id="nav">
 					<li class="page_item <?php if (is_front_page()) echo( 'current_page_item');?>"><a href="	<?php bloginfo( 'url'); ?>"><?php _e( 'Главная', 'titan' ); ?></a></li>
