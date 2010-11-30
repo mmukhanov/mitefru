@@ -62,7 +62,7 @@ div.skip-content { display: none; }
 #header {
 	width: 100%;
 	border-bottom: 1px solid #ede7e0;
-	/*background: #443B31 url(../images/nav-background.gif) repeat-x bottom left;*/
+	background: #ffffff url(../images/nav-background.gif) repeat-x bottom left;
 }
 #follow {
 	background: #2f2922;

@@ -50,20 +50,6 @@
 <body <?php body_class(); ?>>
 	<div class="skip-content"><a href="#content">Skip to content</a></div>
 	<div id="header" class="clear">
-		<div id="follow">
-			<div class="wrapper clear">
-				<dl>
-					<dt><?php _e( 'Follow:', 'titan' ); ?></dt>
-					<dd><a class="rss" href="<?php bloginfo( 'rss2_url'); ?>"><?php _e( 'RSS', 'titan' ); ?></a></dd>
-					<?php if ($titan->emailToggle() == 'true' ): else : ?>
-					 <dd><a class="email" href="<?php if ($titan->feedEmail() !== '' )echo $titan->feedEmail(); else echo "#"; ?>"><?php _e( 'Email', 'titan' ); ?></a></dd>
-					<?php endif; ?>
-					<?php if ($titan->twitterToggle() == 'true' ): else : ?>
-					 <dd><a class="twitter" href="<?php if ($titan->twitter() !== '' )echo $titan->twitter(); else echo "#"; ?>"><?php _e( 'Twitter', 'titan' ); ?></a></dd>
-					<?php endif; ?>
-				</dl>
-			</div><!--end wrapper-->
-		</div><!--end follow-->
 		<div class="wrapper">
 			<?php if (is_home()) echo( '<h1 id="title">'); else echo( '<div id="title">');?><a href="<?php bloginfo( 'url'); ?>"><?php bloginfo( 'name'); ?></a><?php if (is_home()) echo( '</h1>'); else echo( '</div>');?>
 			<div id="description">
