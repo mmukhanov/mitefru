@@ -57,7 +57,7 @@
 			</div><!--end description-->
 			<div id="navigation">
 				<ul id="nav">
-					<li class="page_item <?php if (is_front_page()) echo( 'current_page_item');?>"><a href="<?php bloginfo( 'url'); ?>"><?php _e( 'Home', 'titan' ); ?></a></li>
+					<li class="page_item <?php if (is_front_page()) echo( 'current_page_item');?>"><a href="<?php bloginfo( 'url'); ?>"><?php _e( 'Главная', 'titan' ); ?></a></li>
 					<?php if ($titan->hidePages() !== 'true' ): ?>
 						<?php wp_list_pages( 'title_li=' ); ?>
 					<?php endif; ?>

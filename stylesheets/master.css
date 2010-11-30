@@ -43,7 +43,7 @@ a:hover { color: #993333; }
 	width: 648px;
 	padding: 0 0 30px 0;
 }
-.content-background { background: url(../images/content-background.gif) repeat-x top left; }
+.content-background { background: #ffffff;/* url(../images/content-background.gif) repeat-x top left;*/ }
 #sidebar {
 	float: right;
 	padding-bottom: 30px;
@@ -61,7 +61,7 @@ div.skip-content { display: none; }
 ------------------------------------------------------------ */
 #header {
 	width: 100%;
-	border-bottom: 1px solid #ede7e0;
+	border-bottom: 0px solid #ede7e0;
 	background: #ffffff url(../images/nav-background.gif) repeat-x bottom left;
 }
 #follow {
@@ -114,7 +114,7 @@ h1#title a:hover, div#title a:hover { text-decoration: none; }
 }
 #nav, #nav ul {
 	float: left;
-	line-height: 40px;
+	line-height: 38px;
 	padding: 0;
 	margin: 0;
 	width: 100%;
@@ -168,10 +168,15 @@ h1#title a:hover, div#title a:hover { text-decoration: none; }
 	color: #000;
 }
 #nav .current-cat, #nav .current_page_item {
+	border-top: 1px solid #e3e0d5;
 	background: #fff;
 	color: #000;
 }
 
+#nav .current_page_item:hover{
+	background: #fff;
+	color: #000;
+}
 /*Notice
 ------------------------------------------------------------ */
 div.notice {
@@ -180,10 +185,12 @@ div.notice {
 	font-size: 1.6em;
 }
 div.notice strong { color: #2f2922; }
+
 div.notice div {
 	margin: 10px 0;
 	padding: 20px;
-	background: #f0ebe6 url(../images/notice-background.gif) repeat-x top left;
+	background: #ffffff;
+ 	background: #f0ebe6 url(../images/notice-background.gif) repeat-x top left; 
 }
 div.notice div h2 {
 	font-size: 1.3em;
