@@ -58,12 +58,13 @@
 					<?php if ($titan->hidePages() !== 'true' ): ?>
 						<?php wp_list_pages( 'title_li=' ); ?>
 					<?php endif; ?>
-					<?php if ($titan->hideCategories() != 'true' ): ?>
-						<?php wp_list_categories( 'title_li=' ); ?>
-					<?php endif; ?>
+					<div id="search">
+						<?php if (is_file(STYLESHEETPATH . '/searchform.php')) include (STYLESHEETPATH . '/searchform.php'); else include(TEMPLATEPATH . '/searchform.php'); ?>
+					</div>
 				</ul>
 			</div><!--end navigation-->
 		</div><!--end wrapper-->
+
 	</div><!--end header-->
 <div class="content-background">
 	<div class="wrapper">

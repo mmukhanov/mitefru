@@ -177,6 +177,36 @@ h1#title a:hover, div#title a:hover { text-decoration: none; }
 	background: #fff;
 	color: #000;
 }
+
+/* Search
+-------------------------------------------------------------*/
+#search{
+position: relative;
+right: 0px;
+top: 4px;
+z-index: 100;
+}
+
+#search form {
+margin: 0px;
+}
+
+.find {
+	background: url(../images/search-field.png) no-repeat 0px 50%;
+	border: 0px;
+	color: #666;
+	height: 20px;
+	padding: 2px 5px;
+	position: absolute;
+	right: 26px;
+	width: 170px;
+}
+
+#search input[type="image"] {
+position: absolute;
+right: 0px;
+top: 0px;
+}
 /*Notice
 ------------------------------------------------------------ */
 div.notice {
